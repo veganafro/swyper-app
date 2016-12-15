@@ -1,0 +1,5 @@
+Pods/
+*.plist
+.DS_Store
+swyperio.xcodeproj/
+swyperio.xcworkspace/
