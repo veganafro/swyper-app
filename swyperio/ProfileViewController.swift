@@ -15,7 +15,6 @@ import FirebaseStorage
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var emailLabel: UILabel!
     
     var imagePicker = UIImagePickerController()
     var user = FIRAuth.auth()?.currentUser
@@ -30,12 +29,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //get user id
         let userID = FIRAuth.auth()?.currentUser?.uid
         
-        //get reference to user_profile.uid to get a snapshot 
-        //snapshot is used as a reference to the database
+        // get reference to user_profile.uid to get a snapshot
+        // snapshot is used as a reference to the database
         self.databaseRef.child("user_profile").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
             let userProfile = snapshot.value as? NSDictionary
             let email = userProfile?["email"] as? String
-            self.emailLabel.text = email
             
             //search for user profile_picture if not there use default userIcon
             if(userProfile?["profile_picture"] != nil){

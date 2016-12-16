@@ -29,12 +29,6 @@
                                     <outletCollection property="gestureRecognizers" destination="tK3-Tf-e0f" appends="YES" id="pOL-FH-69f"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfd-8j-ag7">
-                                <rect key="frame" x="103" y="43" width="161" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zv-RR-Wjh">
                                 <rect key="frame" x="103" y="299" width="169" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,22 +75,18 @@
                             <constraint firstItem="0Zv-RR-Wjh" firstAttribute="leading" secondItem="AaA-xP-RRe" secondAttribute="leading" id="G5q-Ul-bVe"/>
                             <constraint firstItem="G7p-TF-2dG" firstAttribute="top" secondItem="NoZ-3Z-tcC" secondAttribute="bottom" constant="51" id="JLI-zB-8pj"/>
                             <constraint firstItem="0Zv-RR-Wjh" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="K0U-pp-jD7"/>
-                            <constraint firstItem="Wfd-8j-ag7" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="23" id="Qe7-Zj-InA"/>
                             <constraint firstItem="0Zv-RR-Wjh" firstAttribute="leading" secondItem="NoZ-3Z-tcC" secondAttribute="leading" id="Svf-3D-u3B"/>
                             <constraint firstItem="0Zv-RR-Wjh" firstAttribute="trailing" secondItem="NoZ-3Z-tcC" secondAttribute="trailing" id="WLi-0j-7Gb"/>
                             <constraint firstItem="0Zv-RR-Wjh" firstAttribute="top" secondItem="AaA-xP-RRe" secondAttribute="bottom" constant="88" id="a5J-EY-YAK"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="G7p-TF-2dG" secondAttribute="bottom" constant="97" id="bGX-8c-9oG"/>
                             <constraint firstItem="G7p-TF-2dG" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="87" id="bqe-ms-NvI"/>
-                            <constraint firstItem="Wfd-8j-ag7" firstAttribute="leading" secondItem="AaA-xP-RRe" secondAttribute="leading" id="e2V-eI-YVe"/>
                             <constraint firstItem="AaA-xP-RRe" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="75" id="eOt-b4-clP"/>
                             <constraint firstItem="0Zv-RR-Wjh" firstAttribute="trailing" secondItem="AaA-xP-RRe" secondAttribute="trailing" id="nUY-UG-GxE"/>
                             <constraint firstItem="NoZ-3Z-tcC" firstAttribute="top" secondItem="0Zv-RR-Wjh" secondAttribute="bottom" constant="51" id="uqm-KI-17q"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Wfd-8j-ag7" secondAttribute="trailing" constant="95" id="vqX-Nx-SN7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="userIcon" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="emailLabel" destination="Wfd-8j-ag7" id="yk7-f1-0Jc"/>
                         <outlet property="profilePicture" destination="AaA-xP-RRe" id="Kcf-WA-Mtb"/>
                     </connections>
                 </viewController>
