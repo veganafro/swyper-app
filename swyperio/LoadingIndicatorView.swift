@@ -13,6 +13,25 @@ class LoadingIndicatorView: UIView {
     let circlePathLayer = CAShapeLayer()
     let circleRadius: CGFloat = 20.0
     
+    var loadingProgress: CGFloat {
+        
+        get {
+            return circlePathLayer.strokeEnd
+        }
+        set {
+            
+            if newValue > 1 {
+                circlePathLayer.strokeEnd = 1
+            }
+            else if newValue < 0 {
+                circlePathLayer.strokeEnd = 0
+            }
+            else {
+                circlePathLayer.strokeEnd = newValue
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
@@ -31,6 +50,8 @@ class LoadingIndicatorView: UIView {
         circlePathLayer.lineWidth = 2
         circlePathLayer.fillColor = UIColor.clear.cgColor
         circlePathLayer.strokeColor = UIColor.red.cgColor
+        
+        loadingProgress = 0
         
         layer.addSublayer(circlePathLayer)
         backgroundColor = UIColor.white
