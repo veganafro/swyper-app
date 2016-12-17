@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // snapshot is used as a reference to the database
         self.databaseRef.child("user_profile").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
             let userProfile = snapshot.value as? NSDictionary
-            let email = userProfile?["email"] as? String
+            // let email = userProfile?["email"] as? String
             
             //search for user profile_picture if not there use default userIcon
             if(userProfile?["profile_picture"] != nil){

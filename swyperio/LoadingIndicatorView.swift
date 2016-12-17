@@ -51,7 +51,7 @@ class LoadingIndicatorView: UIView {
         circlePathLayer.fillColor = UIColor.clear.cgColor
         circlePathLayer.strokeColor = UIColor.red.cgColor
         
-        loadingProgress = 0
+        loadingProgress = 0.001
         
         layer.addSublayer(circlePathLayer)
         backgroundColor = UIColor.white
