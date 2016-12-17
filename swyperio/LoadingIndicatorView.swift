@@ -36,6 +36,14 @@ class LoadingIndicatorView: UIView {
         backgroundColor = UIColor.white
     }
     
+    func circleFrame() -> CGRect {
+    
+        var circleFrame = CGRect(x: 0, y: 0, width: 2 * circleRadius, height: 2 * circleRadius)
+        circleFrame.origin.x = circlePathLayer.bounds.midX - circleFrame.midX
+        circleFrame.origin.y = circlePathLayer.bounds.midY - circleFrame.midY
+        return circleFrame
+    }
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
