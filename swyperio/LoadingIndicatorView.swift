@@ -44,6 +44,17 @@ class LoadingIndicatorView: UIView {
         return circleFrame
     }
     
+    func circlePath() -> UIBezierPath {
+        return UIBezierPath(ovalIn: circleFrame())
+    }
+    
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        circlePathLayer.frame = bounds
+        circlePathLayer.path = circlePath().cgPath
+    }
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
