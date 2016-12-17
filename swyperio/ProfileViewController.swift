@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profilePicture: UIImageView!
     
     var imagePicker = UIImagePickerController()
+    let imageLoadingIndicator = LoadingIndicatorView(frame: CGRect.zero)
     var user = FIRAuth.auth()?.currentUser
     var databaseRef = FIRDatabase.database().reference()
     let storage = FIRStorage.storage()
@@ -38,6 +39,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             //search for user profile_picture if not there use default userIcon
             if(userProfile?["profile_picture"] != nil){
                 print("existing profile photo!")
+                
                 let databaseProfilePic = userProfile?["profile_picture"] as! String
                 let data = NSData(contentsOf: NSURL(string: databaseProfilePic)! as URL)
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data:data! as Data)!)
