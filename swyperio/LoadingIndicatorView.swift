@@ -51,7 +51,7 @@ class LoadingIndicatorView: UIView {
         circlePathLayer.fillColor = UIColor.clear.cgColor
         circlePathLayer.strokeColor = UIColor.red.cgColor
         
-        loadingProgress = 0.9
+        loadingProgress = 0.90
         
         layer.addSublayer(circlePathLayer)
         backgroundColor = UIColor.white
@@ -77,17 +77,21 @@ class LoadingIndicatorView: UIView {
     }
     
     func stopAnimation() {
-        self.removeFromSuperview()
+        
+        print("ARRIVED AT STOP ANIMATION")
+        
+        // self.removeFromSuperview()
     }
     
     func onTimer() {
+        print("ARRIVED AT ON TIMER")
         
         UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(3600)
+        UIView.setAnimationDuration(1800)
         
-        let angle: Double = (M_PI).multiplied(by: 360.0)
+        let angle: Double = (M_PI).multiplied(by: -1)
         
-        let transformation: CGAffineTransform = CGAffineTransform(rotationAngle: CGFloat(angle))
+        let transformation: CGAffineTransform = CGAffineTransform().rotated(by: CGFloat(angle))
         self.transform = transformation
         
         UIView.setAnimationDidStop(#selector(stopAnimation))

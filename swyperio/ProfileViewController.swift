@@ -29,18 +29,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profilePicture.isUserInteractionEnabled = true
         
         self.profilePicture.addSubview(self.imageLoadingIndicator)
-        
-//        UIView.beginAnimations(nil, context: nil)//UnsafeMutableRawPointer(Unmanaged.passUnretained(self.imageLoadingIndicator).toOpaque()))
-//        UIView.setAnimationDuration(3600)
-//        
+      
         self.imageLoadingIndicator.frame = self.profilePicture.bounds
         self.imageLoadingIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        
-//        let transformation: CGAffineTransform = CGAffineTransform(rotationAngle: 360.0)
-//        self.imageLoadingIndicator.transform = transformation
-//        
-//        UIView.setAnimationDelegate(self)
-//        UIView.commitAnimations()
         
         Timer.scheduledTimer(timeInterval: 0.15, target: self.imageLoadingIndicator, selector: #selector(LoadingIndicatorView.onTimer), userInfo: nil, repeats: true)
         
@@ -53,11 +44,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let userProfile = snapshot.value as? NSDictionary
             // let email = userProfile?["email"] as? String
             
+//            Timer.scheduledTimer(timeInterval: 0.15, target: self.imageLoadingIndicator, selector: #selector(LoadingIndicatorView.onTimer), userInfo: nil, repeats: true)
+            
             //search for user profile_picture if not there use default userIcon
             if(userProfile?["profile_picture"] != nil){
                 print("existing profile photo!")
                 let databaseProfilePic = userProfile?["profile_picture"] as! String
                 let data = NSData(contentsOf: NSURL(string: databaseProfilePic)! as URL)
+                self.imageLoadingIndicator.stopAnimation()
+                print("STOPPED IMAGE LOADING ANIMATION AND REMOVING FROM SUPERVIEW")
                 self.imageLoadingIndicator.removeFromSuperview()
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data:data! as Data)!)
             }
@@ -69,28 +64,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         FirebaseHelperFunctions.updateAllEventsObject()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    func stopAnimation() {
-        self.imageLoadingIndicator.removeFromSuperview()
-    }
-    
-    func onTimer() {
-        
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(3600)
-        
-//        self.imageLoadingIndicator.frame = self.profilePicture.bounds
-//        self.imageLoadingIndicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        let angle: Double = (M_PI).multiplied(by: 360.0)
-        
-        let transformation: CGAffineTransform = CGAffineTransform(rotationAngle: CGFloat(angle))
-        self.imageLoadingIndicator.transform = transformation
-        
-        UIView.setAnimationDidStop(#selector(stopAnimation))
-        UIView.setAnimationDelegate(self)
-        UIView.commitAnimations()
     }
     
     override func didReceiveMemoryWarning() {
