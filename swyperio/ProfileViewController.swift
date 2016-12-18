@@ -25,11 +25,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.profilePicture.isUserInteractionEnabled = true
         
         self.profilePicture.addSubview(self.imageLoadingIndicator)
+        
+        UIView.beginAnimations(nil, context: nil)//UnsafeMutableRawPointer(Unmanaged.passUnretained(self.imageLoadingIndicator).toOpaque()))
+        UIView.setAnimationDuration(3600)
+        
         self.imageLoadingIndicator.frame = self.profilePicture.bounds
         self.imageLoadingIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        let transformation: CGAffineTransform = CGAffineTransform(rotationAngle: 360.0)
+        self.imageLoadingIndicator.transform = transformation
+        
+        UIView.setAnimationDelegate(self)
+        UIView.commitAnimations()
         
         //get user id
         let userID = FIRAuth.auth()?.currentUser?.uid
