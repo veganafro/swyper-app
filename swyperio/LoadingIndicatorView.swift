@@ -76,6 +76,25 @@ class LoadingIndicatorView: UIView {
         circlePathLayer.path = circlePath().cgPath
     }
     
+    func stopAnimation() {
+        self.removeFromSuperview()
+    }
+    
+    func onTimer() {
+        
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(3600)
+        
+        let angle: Double = (M_PI).multiplied(by: 360.0)
+        
+        let transformation: CGAffineTransform = CGAffineTransform(rotationAngle: CGFloat(angle))
+        self.transform = transformation
+        
+        UIView.setAnimationDidStop(#selector(stopAnimation))
+        UIView.setAnimationDelegate(self)
+        UIView.commitAnimations()
+    }
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
