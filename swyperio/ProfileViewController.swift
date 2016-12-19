@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let userProfile = snapshot.value as? NSDictionary
             
             //search for user profile_picture if not there use default userIcon
-            if(userProfile?["profile_picture"] != nil){
+            if(userProfile?["profile_picture"] != nil) {
                 
                 print("existing profile photo!")
                 let databaseProfilePic = userProfile?["profile_picture"] as! String
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 activityIndicator.removeFromSuperview()
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data:data! as Data)!)
             }
-            else{
+            else {
                 self.imageLoadingIndicator.removeFromSuperview()
                 self.profilePicture.image = UIImage(named: "userIcon")
             }
