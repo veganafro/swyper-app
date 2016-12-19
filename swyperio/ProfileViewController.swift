@@ -28,32 +28,37 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         self.profilePicture.isUserInteractionEnabled = true
         
-        self.profilePicture.addSubview(self.imageLoadingIndicator)
+        // self.profilePicture.addSubview(self.imageLoadingIndicator)
+        
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityIndicator.frame = self.profilePicture.bounds
+        activityIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        self.profilePicture.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
       
-        self.imageLoadingIndicator.frame = self.profilePicture.bounds
-        self.imageLoadingIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        // self.imageLoadingIndicator.frame = self.profilePicture.bounds
+        // self.imageLoadingIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-        Timer.scheduledTimer(timeInterval: 0.15, target: self.imageLoadingIndicator, selector: #selector(LoadingIndicatorView.onTimer), userInfo: nil, repeats: true)
+        // Timer.scheduledTimer(timeInterval: 0.15, target: self.imageLoadingIndicator, selector: #selector(LoadingIndicatorView.onTimer), userInfo: nil, repeats: true)
         
-        //get user id
+        // get user id
         let userID = FIRAuth.auth()?.currentUser?.uid
         
         // get reference to user_profile.uid to get a snapshot
         // snapshot is used as a reference to the database
         self.databaseRef.child("user_profile").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
             let userProfile = snapshot.value as? NSDictionary
-            // let email = userProfile?["email"] as? String
-            
-//            Timer.scheduledTimer(timeInterval: 0.15, target: self.imageLoadingIndicator, selector: #selector(LoadingIndicatorView.onTimer), userInfo: nil, repeats: true)
             
             //search for user profile_picture if not there use default userIcon
             if(userProfile?["profile_picture"] != nil){
+                
                 print("existing profile photo!")
                 let databaseProfilePic = userProfile?["profile_picture"] as! String
                 let data = NSData(contentsOf: NSURL(string: databaseProfilePic)! as URL)
-                self.imageLoadingIndicator.stopAnimation()
-                print("STOPPED IMAGE LOADING ANIMATION AND REMOVING FROM SUPERVIEW")
-                self.imageLoadingIndicator.removeFromSuperview()
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
                 self.setProfilePicture(imageView: self.profilePicture, imageToSet: UIImage(data:data! as Data)!)
             }
             else{
