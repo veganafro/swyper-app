@@ -28,8 +28,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         self.profilePicture.isUserInteractionEnabled = true
         
-        // self.profilePicture.addSubview(self.imageLoadingIndicator)
-        
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         activityIndicator.frame = self.profilePicture.bounds
         activityIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -37,11 +35,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profilePicture.addSubview(activityIndicator)
         
         activityIndicator.startAnimating()
-      
-        // self.imageLoadingIndicator.frame = self.profilePicture.bounds
-        // self.imageLoadingIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        // Timer.scheduledTimer(timeInterval: 0.15, target: self.imageLoadingIndicator, selector: #selector(LoadingIndicatorView.onTimer), userInfo: nil, repeats: true)
         
         // get user id
         let userID = FIRAuth.auth()?.currentUser?.uid
