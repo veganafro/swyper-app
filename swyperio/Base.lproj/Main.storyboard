@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xaL-m9-uye">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xaL-m9-uye">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -171,16 +171,6 @@
                                     <constraint firstAttribute="height" constant="276" id="eug-gV-Iyd"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoD-A7-FOu">
-                                <rect key="frame" x="103" y="535" width="169" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="pBF-u4-gc1"/>
-                                </constraints>
-                                <state key="normal" title="ATTACH A PHOTO">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="    Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="scv-aF-pTO">
                                 <rect key="frame" x="0.0" y="418" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,27 +201,50 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="    Number of Swypes" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2z-Lc-FvR">
+                                <rect key="frame" x="0.0" y="514" width="375" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="d3r-KN-Xg5"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoD-A7-FOu">
+                                <rect key="frame" x="103" y="591" width="169" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="xKD-4y-gr2"/>
+                                </constraints>
+                                <state key="normal" title="ATTACH A PHOTO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qoD-A7-FOu" firstAttribute="top" secondItem="3bY-YX-JWv" secondAttribute="bottom" constant="29" id="17z-oE-Ebh"/>
                             <constraint firstItem="scv-aF-pTO" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="4Vi-Qk-4b0"/>
                             <constraint firstItem="ifC-4S-THA" firstAttribute="top" secondItem="hHD-FX-NQh" secondAttribute="bottom" id="5Zc-wZ-7QP"/>
                             <constraint firstItem="3bY-YX-JWv" firstAttribute="trailing" secondItem="scv-aF-pTO" secondAttribute="trailing" id="5rG-Kv-7t0"/>
+                            <constraint firstItem="qoD-A7-FOu" firstAttribute="leading" secondItem="vVi-7e-PU7" secondAttribute="leadingMargin" constant="87" id="9aa-A0-UMr"/>
                             <constraint firstItem="Y4B-M2-faU" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="BH6-YH-V4i"/>
                             <constraint firstItem="3bY-YX-JWv" firstAttribute="top" secondItem="scv-aF-pTO" secondAttribute="bottom" constant="8" symbolic="YES" id="Bht-TW-4AR"/>
                             <constraint firstItem="scv-aF-pTO" firstAttribute="leading" secondItem="M05-tC-PgC" secondAttribute="leading" id="CXw-7d-oQZ"/>
                             <constraint firstItem="Y4B-M2-faU" firstAttribute="top" secondItem="M05-tC-PgC" secondAttribute="bottom" constant="30" id="DwI-n7-Cip"/>
+                            <constraint firstItem="b2z-Lc-FvR" firstAttribute="trailing" secondItem="3bY-YX-JWv" secondAttribute="trailing" id="ELn-Vv-Eof"/>
                             <constraint firstItem="M05-tC-PgC" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="Kg5-wl-m92"/>
                             <constraint firstItem="ifC-4S-THA" firstAttribute="leading" secondItem="vVi-7e-PU7" secondAttribute="leading" id="Ox0-hk-jCu"/>
                             <constraint firstItem="M05-tC-PgC" firstAttribute="leading" secondItem="ifC-4S-THA" secondAttribute="leading" id="TYH-4Q-m2C"/>
+                            <constraint firstItem="qoD-A7-FOu" firstAttribute="centerX" secondItem="b2z-Lc-FvR" secondAttribute="centerX" id="UoR-Dx-nGn"/>
                             <constraint firstItem="scv-aF-pTO" firstAttribute="top" secondItem="Y4B-M2-faU" secondAttribute="bottom" constant="8" symbolic="YES" id="Uv2-k3-pGz"/>
                             <constraint firstItem="M05-tC-PgC" firstAttribute="top" secondItem="ifC-4S-THA" secondAttribute="bottom" id="Wih-7W-U48"/>
-                            <constraint firstItem="qoD-A7-FOu" firstAttribute="leading" secondItem="vVi-7e-PU7" secondAttribute="leadingMargin" constant="87" id="j5x-fP-icJ"/>
+                            <constraint firstItem="A64-El-lF7" firstAttribute="top" secondItem="qoD-A7-FOu" secondAttribute="bottom" constant="36" id="hNi-rh-GpD"/>
+                            <constraint firstItem="b2z-Lc-FvR" firstAttribute="leading" secondItem="3bY-YX-JWv" secondAttribute="leading" id="hxO-YF-a8Z"/>
                             <constraint firstItem="Y4B-M2-faU" firstAttribute="centerX" secondItem="M05-tC-PgC" secondAttribute="centerX" id="pxL-2b-yIP"/>
-                            <constraint firstItem="qoD-A7-FOu" firstAttribute="centerX" secondItem="3bY-YX-JWv" secondAttribute="centerX" id="vRo-Yv-Vth"/>
                             <constraint firstItem="ifC-4S-THA" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="wjz-HX-Szq"/>
                             <constraint firstItem="3bY-YX-JWv" firstAttribute="leading" secondItem="scv-aF-pTO" secondAttribute="leading" id="xzV-TZ-Ze4"/>
+                            <constraint firstItem="b2z-Lc-FvR" firstAttribute="top" secondItem="3bY-YX-JWv" secondAttribute="bottom" constant="8" symbolic="YES" id="ypV-eb-bZI"/>
                         </constraints>
                     </view>
                     <connections>
@@ -239,6 +252,7 @@
                         <outlet property="descriptionTextField" destination="3bY-YX-JWv" id="gzO-hu-k4r"/>
                         <outlet property="diningHallPicker" destination="M05-tC-PgC" id="Uc7-uq-LXF"/>
                         <outlet property="nameTextField" destination="Y4B-M2-faU" id="iNt-0P-LcG"/>
+                        <outlet property="numberOfSwypesTextField" destination="b2z-Lc-FvR" id="CPf-YE-DKN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBd-wM-nZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>

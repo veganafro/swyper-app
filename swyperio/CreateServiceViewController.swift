@@ -31,6 +31,8 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var numberOfSwypesTextField: UITextField!
+    
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
     var user = FIRAuth.auth()?.currentUser
@@ -91,8 +93,8 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US")
         
         self.dateChosen = "\(datePickerView.date)"
@@ -111,7 +113,7 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
         
         let location = diningHallsDictionary[diningHallPickerDataSource[diningHallPicker.selectedRow(inComponent: 0)]]
         
-        let eventToCreate = Event(name: nameTextField.text!, coordinate: location!, startTime: datePickerView.date, endTime: datePickerView.date.addingTimeInterval(3600), maxReservations: 1, information: descriptionTextField.text!, userID: (FIRAuth.auth()?.currentUser?.uid)!)
+        let eventToCreate = Event(name: nameTextField.text!, coordinate: location!, startTime: datePickerView.date, endTime: datePickerView.date.addingTimeInterval(3600), maxReservations: Int(numberOfSwypesTextField.text!)!, information: descriptionTextField.text!, userID: (FIRAuth.auth()?.currentUser?.uid)!)
         
         print(diningHallPicker.selectedRow(inComponent: 0))
         
