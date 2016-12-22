@@ -40,7 +40,7 @@ class FirebaseHelperFunctions: NSObject {
     
     /*  deletes an event from firebase
     */
-    static func deleteEvent(_ event: Event){
+    static func deleteEvent(_ event: Event) {
         let databaseRef = FIRDatabase.database().reference()
         //let dateFormatter = DateFormatter()
         //dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
@@ -58,7 +58,7 @@ class FirebaseHelperFunctions: NSObject {
      
         currently just updates the all events object
      */
-    static func updateAllEventsObject(){
+    static func updateAllEventsObject() {
         print("updating allEvents object")
         let databaseRef = FIRDatabase.database().reference()
         databaseRef.child("events").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
@@ -66,7 +66,7 @@ class FirebaseHelperFunctions: NSObject {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
             if let eventsDictionary = allEventsDict {
-                for(uniqueEventID, eventInfo) in eventsDictionary{
+                for(uniqueEventID, eventInfo) in eventsDictionary {
                     let tempDict = eventInfo as? NSDictionary
                 
                     let eventToAdd = Event(name: tempDict?["name"] as! String ,

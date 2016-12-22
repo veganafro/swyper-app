@@ -89,10 +89,15 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func tapOutsideDatePicker() {
         
-        // self.datePickerView.isHidden = true
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
         self.dateChosen = "\(datePickerView.date)"
         self.datePickerView.removeFromSuperview()
-        self.dateTextField.text = "\(self.datePickerView.date)"
+        self.dateTextField.text = "\(dateFormatter.string(from: self.datePickerView.date))"
     }
     
     override func didReceiveMemoryWarning() {
