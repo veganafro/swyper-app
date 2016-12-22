@@ -84,6 +84,7 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
         // Do any additional setup after loading the view.
         diningHallPicker.delegate = self
         diningHallPicker.dataSource = self
+        
         dateTextField.delegate = self
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateServiceViewController.tapOutsideDatePicker))
         self.view.addGestureRecognizer(tapGesture)

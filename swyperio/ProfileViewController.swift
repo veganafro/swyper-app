@@ -163,7 +163,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     //handle what happens after a photo is selected (updates the profilePicture, the firebase storage and database
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    @nonobjc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         print("reached imagePickerController func")
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -175,12 +175,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 let profilePicStorageRef = storageRef.child("user_profile/\(self.user!.uid)/profile_picture")
                 
-                let uploadTask = profilePicStorageRef.put(imageData as Data, metadata: nil){ metadata, error in
+                let uploadTask = profilePicStorageRef.put(imageData as Data, metadata: nil) { metadata, error in
                     
-                    if(error == nil){
+                    if(error == nil) {
                         let downloadUrl = metadata!.downloadURL()
-                        
-                        self.databaseRef.child("user_profile").child(self.user!.uid).child("profile_picture").setValue(downloadUrl!.absoluteString)
+                    self.databaseRef.child("user_profile").child(self.user!.uid).child("profile_picture").setValue(downloadUrl!.absoluteString)
                     }
                     else{
                         print("Hi this is pp1")
