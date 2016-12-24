@@ -56,10 +56,24 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
         
         if textField === dateTextField {
             // add a subview that is a custom subclass of UIViewController
-            self.datePickerView.frame = CGRect(x: UIScreen.main.bounds.midX - 175, y: UIScreen.main.bounds.midY - 100, width: 350, height: 200)
-            self.datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
-            self.datePickerView.backgroundColor = UIColor.gray
-            self.view.addSubview(datePickerView)
+//            self.datePickerView.frame = CGRect(x: UIScreen.main.bounds.midX - 175, y: UIScreen.main.bounds.midY - 100, width: 350, height: 200)
+//            self.datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
+//            self.datePickerView.backgroundColor = UIColor.gray
+//            self.view.addSubview(datePickerView)
+            
+            let title = ""
+            let message = "\n\n\n\n\n\n\n\n\n\n"
+            
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            
+            self.datePickerView.frame = alert.view.bounds
+            self.datePickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            alert.view.addSubview(datePickerView)
+            
+            self.present(alert, animated: true, completion: nil)
             return false
         }
         return true
