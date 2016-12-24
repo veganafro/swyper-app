@@ -71,7 +71,7 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
             
             // self.datePickerView.frame = alert.view.bounds
             
-            self.datePickerView.frame = CGRect(x: alert.view.bounds.midX - (alert.view.bounds.maxX / 2), y: alert.view.bounds.midY - (alert.view.bounds.maxY / 2), width: alert.view.bounds.width, height: alert.view.bounds.height - 40)
+            self.datePickerView.frame = CGRect(x: alert.view.bounds.midX - (alert.view.bounds.maxX / 2), y: alert.view.bounds.midY - (alert.view.bounds.maxY / 2), width: alert.view.bounds.width, height: alert.view.bounds.height - 35)
             self.datePickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
             alert.view.addSubview(datePickerView)
