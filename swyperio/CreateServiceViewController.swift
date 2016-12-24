@@ -50,6 +50,7 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     let datePickerView: UIDatePicker = UIDatePicker()
+    var alert: UIAlertController = UIAlertController()
     var diningHallPickerDataSource = [String]()
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -64,14 +65,13 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
             let title = ""
             let message = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
             
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
-            self.datePickerView.frame = alert.view.bounds
+            // self.datePickerView.frame = alert.view.bounds
+            self.datePickerView.frame = CGRect(x: alert.view.bounds.midX - (alert.view.bounds.maxX / 2), y: alert.view.bounds.midY - (alert.view.bounds.maxY / 2), width: alert.view.bounds.width, height: alert.view.bounds.height - 40)
             self.datePickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
             alert.view.addSubview(datePickerView)
-            // alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            // alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
             
             self.present(alert, animated: true, completion: nil)
             return false
