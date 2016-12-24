@@ -62,16 +62,16 @@ UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 //            self.view.addSubview(datePickerView)
             
             let title = ""
-            let message = "\n\n\n\n\n\n\n\n\n\n"
+            let message = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
             
             self.datePickerView.frame = alert.view.bounds
             self.datePickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
             alert.view.addSubview(datePickerView)
+            // alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            // alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
             
             self.present(alert, animated: true, completion: nil)
             return false
