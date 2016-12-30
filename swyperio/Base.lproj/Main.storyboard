@@ -134,118 +134,6 @@
             <point key="canvasLocation" x="767.20000000000005" y="353.9730134932534"/>
         </scene>
         <!--Create Service-->
-        <scene sceneID="NYk-xp-MN1">
-            <objects>
-                <viewController storyboardIdentifier="createServiceViewController" title="Create Service" id="GTv-oM-bV0" customClass="CreateServiceViewController" customModule="swyperio" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hHD-FX-NQh"/>
-                        <viewControllerLayoutGuide type="bottom" id="A64-El-lF7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vVi-7e-PU7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifC-4S-THA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title=" swype" id="l3V-Oy-0sk">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="30O-Xz-sb2">
-                                            <connections>
-                                                <segue destination="wjO-xK-fiv" kind="unwind" identifier="cancelCreateServiceSegue" unwindAction="cancelCreateServiceWithSeuge:" id="hHf-x7-ao5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="I67-Ay-cLP">
-                                            <connections>
-                                                <action selector="didTapDoneButton:" destination="GTv-oM-bV0" id="qdK-yb-el5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M05-tC-PgC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Klj-pP-ZA1"/>
-                                </constraints>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="    Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="scv-aF-pTO">
-                                <rect key="frame" x="0.0" y="361" width="375" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Gwn-Xj-Y8m"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="    Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4B-M2-faU">
-                                <rect key="frame" x="0.0" y="313" width="375" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="BpH-rF-ZL3"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="    Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-YX-JWv">
-                                <rect key="frame" x="0.0" y="409" width="375" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="z0C-ip-pmp"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="    Number of Swypes" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2z-Lc-FvR">
-                                <rect key="frame" x="0.0" y="457" width="375" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="b2z-Lc-FvR" firstAttribute="top" secondItem="3bY-YX-JWv" secondAttribute="bottom" constant="8" symbolic="YES" id="0Jq-MB-Pza"/>
-                            <constraint firstItem="M05-tC-PgC" firstAttribute="top" secondItem="ifC-4S-THA" secondAttribute="bottom" id="2T4-dM-Equ"/>
-                            <constraint firstItem="scv-aF-pTO" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="4Vi-Qk-4b0"/>
-                            <constraint firstItem="3bY-YX-JWv" firstAttribute="trailing" secondItem="scv-aF-pTO" secondAttribute="trailing" id="4t2-Kq-AO1"/>
-                            <constraint firstItem="ifC-4S-THA" firstAttribute="top" secondItem="hHD-FX-NQh" secondAttribute="bottom" id="5Zc-wZ-7QP"/>
-                            <constraint firstItem="A64-El-lF7" firstAttribute="top" secondItem="b2z-Lc-FvR" secondAttribute="bottom" constant="170" id="7di-Kv-6k8"/>
-                            <constraint firstItem="Y4B-M2-faU" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="BH6-YH-V4i"/>
-                            <constraint firstAttribute="bottom" secondItem="3bY-YX-JWv" secondAttribute="bottom" constant="218" id="JoU-Ia-Sg9"/>
-                            <constraint firstItem="ifC-4S-THA" firstAttribute="leading" secondItem="vVi-7e-PU7" secondAttribute="leading" id="Ox0-hk-jCu"/>
-                            <constraint firstItem="b2z-Lc-FvR" firstAttribute="trailing" secondItem="3bY-YX-JWv" secondAttribute="trailing" id="TnJ-U7-Jst"/>
-                            <constraint firstItem="scv-aF-pTO" firstAttribute="top" secondItem="Y4B-M2-faU" secondAttribute="bottom" constant="8" symbolic="YES" id="Uv2-k3-pGz"/>
-                            <constraint firstItem="3bY-YX-JWv" firstAttribute="top" secondItem="scv-aF-pTO" secondAttribute="bottom" constant="8" symbolic="YES" id="W88-EP-9gb"/>
-                            <constraint firstItem="b2z-Lc-FvR" firstAttribute="leading" secondItem="3bY-YX-JWv" secondAttribute="leading" id="cgI-a3-nqv"/>
-                            <constraint firstItem="M05-tC-PgC" firstAttribute="leading" secondItem="scv-aF-pTO" secondAttribute="leading" id="dy8-10-KH5"/>
-                            <constraint firstItem="M05-tC-PgC" firstAttribute="trailing" secondItem="ifC-4S-THA" secondAttribute="trailing" id="eJS-MO-uKZ"/>
-                            <constraint firstItem="M05-tC-PgC" firstAttribute="leading" secondItem="ifC-4S-THA" secondAttribute="leading" id="fUU-Iu-yr3"/>
-                            <constraint firstItem="M05-tC-PgC" firstAttribute="leading" secondItem="Y4B-M2-faU" secondAttribute="leading" id="sWf-f1-gs9"/>
-                            <constraint firstItem="3bY-YX-JWv" firstAttribute="leading" secondItem="scv-aF-pTO" secondAttribute="leading" id="t6W-VQ-CaX"/>
-                            <constraint firstItem="ifC-4S-THA" firstAttribute="width" secondItem="vVi-7e-PU7" secondAttribute="width" id="wjz-HX-Szq"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="dateTextField" destination="scv-aF-pTO" id="rBc-qc-W1m"/>
-                        <outlet property="descriptionTextField" destination="3bY-YX-JWv" id="gzO-hu-k4r"/>
-                        <outlet property="diningHallPicker" destination="M05-tC-PgC" id="Uc7-uq-LXF"/>
-                        <outlet property="nameTextField" destination="Y4B-M2-faU" id="iNt-0P-LcG"/>
-                        <outlet property="numberOfSwypesTextField" destination="b2z-Lc-FvR" id="CPf-YE-DKN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aBd-wM-nZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="wjO-xK-fiv" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2638" y="-322"/>
-        </scene>
-        <!--Create Service-->
         <scene sceneID="NgI-ay-2ck">
             <objects>
                 <tableViewController title="Create Service" id="tYN-uN-Z9S" customClass="UpdatedCreateServiceViewController" customModule="swyperio" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,17 +151,14 @@
                                     <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="swype" id="4Vh-Oz-McM">
-                                            <barButtonItem key="leftBarButtonItem" style="plain" id="jW1-3m-8Ze">
+                                            <barButtonItem key="leftBarButtonItem" id="jW1-3m-8Ze">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZFO-r1-DcF">
                                                     <rect key="frame" x="16" y="13" width="83" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Cancel"/>
-                                                    <connections>
-                                                        <segue destination="wjO-xK-fiv" kind="unwind" unwindAction="cancelCreateServiceWithSeuge:" id="qEJ-lD-a0A"/>
-                                                    </connections>
                                                 </button>
                                             </barButtonItem>
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="YZC-cx-bte">
+                                            <barButtonItem key="rightBarButtonItem" id="YZC-cx-bte">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bRc-va-YeS">
                                                     <rect key="frame" x="276" y="13" width="83" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -26,13 +26,12 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
     @IBOutlet weak var endTimeTextField: UITextField!
     
     var user = FIRAuth.auth()?.currentUser
-    var dateChosen: String? = nil
+    // var dateChosen: String? = nil
     let datePickerView: UIDatePicker = UIDatePicker()
     var alert: UIAlertController = UIAlertController()
     var diningHallPicker: UIPickerView = UIPickerView()
     var diningHallPickerDataSource = [String]()
 
-    
     let diningHallsDictionary: [String:CLLocationCoordinate2D] = ["Weinstein": CLLocationCoordinate2D(latitude: 40.731096, longitude: -73.994937),
                                                                   "Kimmel":CLLocationCoordinate2D(latitude: 40.729937, longitude: -73.997827),
                                                                   "Lipton":CLLocationCoordinate2D(latitude: 40.731636, longitude: -73.999545),
@@ -52,8 +51,12 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
         diningHallPicker.dataSource = self
         
         dateTextField.delegate = self
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateServiceViewController.tapOutsideDatePicker))
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UpdatedCreateServiceViewController.tapOutsideDatePicker))
         self.view.addGestureRecognizer(tapGesture)
+        
+        diningHallTextField.delegate = self
+        let tapGesture2: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UpdatedCreateServiceViewController.tapOutsideHallPicker))
+        self.view.addGestureRecognizer(tapGesture2)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -121,7 +124,32 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
             return false
         }
         
+        else if textField === diningHallTextField {
+        
+            let title = ""
+            let message = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+            
+            alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in self.tapOutsideHallPicker()}))
+            
+            self.diningHallPicker.frame = CGRect(x: alert.view.bounds.midX - (alert.view.bounds.maxX / 2), y: alert.view.bounds.midY - (alert.view.bounds.maxY / 2), width: alert.view.bounds.width, height: alert.view.bounds.height - 35)
+            self.diningHallPicker.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            alert.view.addSubview(diningHallPicker)
+            
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        
         return true
+    }
+    
+    func tapOutsideHallPicker() {
+    
+        self.diningHallPicker.removeFromSuperview()
+        self.alert.view.removeFromSuperview()
+        self.diningHallTextField.text = "\(diningHallPickerDataSource[diningHallPicker.selectedRow(inComponent: 0)])"
     }
     
     func tapOutsideDatePicker() {
@@ -132,7 +160,7 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US")
         
-        self.dateChosen = "\(datePickerView.date)"
+        // self.dateChosen = "\(datePickerView.date)"
         self.datePickerView.removeFromSuperview()
         self.alert.view.removeFromSuperview()
         self.dateTextField.text = "\(dateFormatter.string(from: self.datePickerView.date))"
