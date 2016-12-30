@@ -26,7 +26,6 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
     @IBOutlet weak var endTimeTextField: UITextField!
     
     var user = FIRAuth.auth()?.currentUser
-    // var dateChosen: String? = nil
     let datePickerView: UIDatePicker = UIDatePicker()
     var alert: UIAlertController = UIAlertController()
     var diningHallPicker: UIPickerView = UIPickerView()
