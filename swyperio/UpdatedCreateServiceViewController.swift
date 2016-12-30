@@ -160,7 +160,6 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US")
         
-        // self.dateChosen = "\(datePickerView.date)"
         self.datePickerView.removeFromSuperview()
         self.alert.view.removeFromSuperview()
         self.dateTextField.text = "\(dateFormatter.string(from: self.datePickerView.date))"
