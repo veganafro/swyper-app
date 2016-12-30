@@ -7,17 +7,59 @@
 //
 
 import UIKit
+import MapKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
-class UpdatedCreateServiceViewController: UITableViewController {
+class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet var labels: [UILabel]!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var numberOfSwypesTextField: UITextField!
+    @IBOutlet weak var diningHallTextField: UITextField!
+    
+    @IBOutlet weak var startTimeTextField: UITextField!
+    @IBOutlet weak var endTimeTextField: UITextField!
+    
+    var user = FIRAuth.auth()?.currentUser
+    var dateChosen: String? = nil
+    let datePickerView: UIDatePicker = UIDatePicker()
+    var alert: UIAlertController = UIAlertController()
+    var diningHallPicker: UIPickerView = UIPickerView()
+    var diningHallPickerDataSource = [String]()
+
+    
+    let diningHallsDictionary: [String:CLLocationCoordinate2D] = ["Weinstein": CLLocationCoordinate2D(latitude: 40.731096, longitude: -73.994937),
+                                                                  "Kimmel":CLLocationCoordinate2D(latitude: 40.729937, longitude: -73.997827),
+                                                                  "Lipton":CLLocationCoordinate2D(latitude: 40.731636, longitude: -73.999545),
+                                                                  "Third North":CLLocationCoordinate2D(latitude: 40.731394, longitude: -73.988190),
+                                                                  "UHall":CLLocationCoordinate2D(latitude: 40.733710, longitude: -73.989196),
+                                                                  "Palladium":CLLocationCoordinate2D(latitude: 40.733308, longitude: -73.988199),
+                                                                  "Warren Weaver":CLLocationCoordinate2D(latitude: 40.728669, longitude: -73.995662),
+                                                                  "Tisch Hall":CLLocationCoordinate2D(latitude: 40.728765, longitude: -73.996184),
+                                                                  "Bobst":CLLocationCoordinate2D(latitude: 40.729435, longitude: -73.997212)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateWidthsForLabels(labels: labels)
+        
+        diningHallPicker.delegate = self
+        diningHallPicker.dataSource = self
+        
+        dateTextField.delegate = self
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateServiceViewController.tapOutsideDatePicker))
+        self.view.addGestureRecognizer(tapGesture)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +97,73 @@ class UpdatedCreateServiceViewController: UITableViewController {
             
             item.addConstraint(constraint)
         }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        if textField === dateTextField {
+            
+            let title = ""
+            let message = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+            
+            alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in self.tapOutsideDatePicker()}))
+            
+            // self.datePickerView.frame = alert.view.bounds
+            
+            self.datePickerView.frame = CGRect(x: alert.view.bounds.midX - (alert.view.bounds.maxX / 2), y: alert.view.bounds.midY - (alert.view.bounds.maxY / 2), width: alert.view.bounds.width, height: alert.view.bounds.height - 35)
+            self.datePickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            alert.view.addSubview(datePickerView)
+            
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        
+        return true
+    }
+    
+    func tapOutsideDatePicker() {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        self.dateChosen = "\(datePickerView.date)"
+        self.datePickerView.removeFromSuperview()
+        self.alert.view.removeFromSuperview()
+        self.dateTextField.text = "\(dateFormatter.string(from: self.datePickerView.date))"
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return diningHallsDictionary.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        self.diningHallPickerDataSource = Array(diningHallsDictionary.keys)
+        return diningHallPickerDataSource[row]
+    }
+    
+    @IBAction func didTapDoneButton(_ sender: AnyObject) {
+        
+        print("tapping done button")
+        
+        let location = diningHallsDictionary[diningHallPickerDataSource[diningHallPicker.selectedRow(inComponent: 0)]]
+        
+        let eventToCreate = Event(name: nameTextField.text!, coordinate: location!, startTime: datePickerView.date, endTime: datePickerView.date.addingTimeInterval(3600), maxReservations: Int(numberOfSwypesTextField.text!)!, information: descriptionTextField.text!, userID: (FIRAuth.auth()?.currentUser?.uid)!)
+        
+        print(diningHallPicker.selectedRow(inComponent: 0))
+        
+        FirebaseHelperFunctions.uploadEvent(eventToCreate)
+        FirebaseHelperFunctions.updateAllEventsObject()
+        self.performSegue(withIdentifier: "cancelCreateServiceSegue", sender: nil)
     }
     
     // MARK: - Table view data source
