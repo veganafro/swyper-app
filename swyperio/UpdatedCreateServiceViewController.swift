@@ -113,8 +113,6 @@ class UpdatedCreateServiceViewController: UITableViewController, UITextFieldDele
             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in self.tapOutsideDatePicker()}))
             
-            // self.datePickerView.frame = alert.view.bounds
-            
             self.datePickerView.frame = CGRect(x: alert.view.bounds.midX - (alert.view.bounds.maxX / 2), y: alert.view.bounds.midY - (alert.view.bounds.maxY / 2), width: alert.view.bounds.width, height: alert.view.bounds.height - 35)
             self.datePickerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
