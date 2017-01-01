@@ -138,7 +138,7 @@
         <!--Item-->
         <scene sceneID="4uA-js-o9H">
             <objects>
-                <viewController id="oIW-8E-kic" sceneMemberID="viewController">
+                <viewController id="oIW-8E-kic" customClass="UITableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ESW-Ck-EeM"/>
                         <viewControllerLayoutGuide type="bottom" id="OzA-Xn-5Y8"/>
