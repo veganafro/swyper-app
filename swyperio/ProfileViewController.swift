@@ -175,7 +175,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 let profilePicStorageRef = storageRef.child("user_profile/\(self.user!.uid)/profile_picture")
                 
-                let uploadTask = profilePicStorageRef.put(imageData as Data, metadata: nil) { metadata, error in
+                _ = profilePicStorageRef.put(imageData as Data, metadata: nil) { metadata, error in
                     
                     if(error == nil) {
                         let downloadUrl = metadata!.downloadURL()
