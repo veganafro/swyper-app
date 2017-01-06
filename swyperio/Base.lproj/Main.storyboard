@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="0.0"/>
+            <point key="canvasLocation" x="2169" y="0.0"/>
         </scene>
         <!--Messages-->
         <scene sceneID="4uA-js-o9H">
@@ -153,6 +153,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pik-6X-oQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1017" y="589"/>
+        </scene>
+        <!--All Messages Table View Controller-->
+        <scene sceneID="mSb-pz-8CY">
+            <objects>
+                <tableViewController id="qGp-nt-o40" customClass="AllMessagesTableViewController" customModule="swyperio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8cg-ir-sBa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationCell" id="Ptp-nT-A5w">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="Ptp-nT-A5w" id="Q6x-Iw-KId">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5B-8W-m3N">
+                                            <rect key="frame" x="17" y="-0.5" width="358" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="e5B-8W-m3N" firstAttribute="width" secondItem="Q6x-Iw-KId" secondAttribute="width" constant="-17" id="KXJ-A5-eAk"/>
+                                        <constraint firstItem="e5B-8W-m3N" firstAttribute="leading" secondItem="Q6x-Iw-KId" secondAttribute="leadingMargin" constant="9" id="Svk-CB-nM2"/>
+                                        <constraint firstItem="e5B-8W-m3N" firstAttribute="height" secondItem="Q6x-Iw-KId" secondAttribute="height" id="b1a-dA-bKH"/>
+                                        <constraint firstItem="e5B-8W-m3N" firstAttribute="centerY" secondItem="Q6x-Iw-KId" secondAttribute="centerY" id="jR2-VO-Ixv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qGp-nt-o40" id="UcU-UT-2bY"/>
+                            <outlet property="delegate" destination="qGp-nt-o40" id="Zqw-0K-t88"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tXZ-zg-W6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1016.8" y="1331.784107946027"/>
         </scene>
         <!--Create Service-->
         <scene sceneID="NgI-ay-2ck">

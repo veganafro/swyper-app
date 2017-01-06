@@ -163,7 +163,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     //handle what happens after a photo is selected (updates the profilePicture, the firebase storage and database
-    @nonobjc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("reached imagePickerController func")
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {

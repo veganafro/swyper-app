@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class AllMessagesTableViewController: UITableViewController {
 
+    var senderDisplayName: String?
+    // private var userConversations = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
