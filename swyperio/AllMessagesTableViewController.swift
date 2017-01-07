@@ -23,6 +23,16 @@ class AllMessagesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        userConversations.append(Conversation(conversationID: "69", senderID: "69", receiverID: "69", receiverName: "Jeremy"))
+        userConversations.append(Conversation(conversationID: "69", senderID: "69", receiverID: "69", receiverName: "Herp"))
+        userConversations.append(Conversation(conversationID: "69", senderID: "69", receiverID: "69", receiverName: "Derp"))
+        
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,7 +52,7 @@ class AllMessagesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath)
 
         // Configure the cell...
         cell.textLabel?.text = userConversations[(indexPath).row].receiverName
