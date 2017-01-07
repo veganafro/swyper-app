@@ -12,7 +12,7 @@ import Firebase
 class AllMessagesTableViewController: UITableViewController {
 
     var senderDisplayName: String?
-    // private var userConversations = []
+    private var userConversations: [Conversation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +33,12 @@ class AllMessagesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return userConversations.count
     }
 
     /*
