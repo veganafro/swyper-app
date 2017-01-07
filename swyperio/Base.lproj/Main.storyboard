@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pBf-og-7zv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xaL-m9-uye">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -136,25 +136,6 @@
             <point key="canvasLocation" x="2169" y="0.0"/>
         </scene>
         <!--Messages-->
-        <scene sceneID="4uA-js-o9H">
-            <objects>
-                <viewController id="oIW-8E-kic" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ESW-Ck-EeM"/>
-                        <viewControllerLayoutGuide type="bottom" id="OzA-Xn-5Y8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="V3v-p8-MMJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="messagesIcon" id="Zx6-LS-RZt"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pik-6X-oQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1017" y="589"/>
-        </scene>
-        <!--Messages-->
         <scene sceneID="mSb-pz-8CY">
             <objects>
                 <tableViewController id="qGp-nt-o40" customClass="AllMessagesTableViewController" customModule="swyperio" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +176,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXZ-zg-W6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="1332"/>
+            <point key="canvasLocation" x="1017" y="1446"/>
         </scene>
         <!--Create Service-->
         <scene sceneID="NgI-ay-2ck">
@@ -584,17 +565,18 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="oIW-8E-kic" kind="relationship" relationship="viewControllers" id="VAW-j5-oYO"/>
+                        <segue destination="pBf-og-7zv" kind="relationship" relationship="viewControllers" id="T77-Mt-UAd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Messages-->
         <scene sceneID="6Ta-eG-5Ee">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pBf-og-7zv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="messagesIcon" selectedImage="messagesIcon" id="zR3-He-52M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WQe-pS-hoH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -607,7 +589,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duy-x8-unp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016.8" y="1331.784107946027"/>
+            <point key="canvasLocation" x="1017" y="580"/>
         </scene>
     </scenes>
     <resources>

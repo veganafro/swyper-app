@@ -73,8 +73,8 @@ class FirebaseHelperFunctions: NSObject {
                                            coordinate: CLLocationCoordinate2D(
                                             latitude: tempDict?["latitude"] as! CLLocationDegrees,
                                             longitude: tempDict?["longitude"] as! CLLocationDegrees),
-                                           startTime: (dateFormatter.date(from: tempDict?["start_time"] as! String) as? Date!)!,
-                                           endTime: (dateFormatter.date(from: tempDict?["end_time"] as! String) as? Date!)!,
+                                           startTime: (dateFormatter.date(from: tempDict?["start_time"] as! String) as Date!)!,
+                                           endTime: (dateFormatter.date(from: tempDict?["end_time"] as! String) as Date!)!,
                                            maxReservations: tempDict?["max_reservations"] as! Int,
                                            information: tempDict?["information"] as! String,
                                            userID: tempDict?["user_id"] as! String,
