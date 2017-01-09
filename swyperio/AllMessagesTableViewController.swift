@@ -27,9 +27,9 @@ class AllMessagesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        userConversations.append(Conversation(conversationID: "69", senderID: "69", receiverID: "69", receiverName: "Jeremy"))
-        userConversations.append(Conversation(conversationID: "69", senderID: "69", receiverID: "69", receiverName: "Herp"))
-        userConversations.append(Conversation(conversationID: "69", senderID: "69", receiverID: "69", receiverName: "Derp"))
+        userConversations.append(Conversation(conversationID: "69", senderID: "69", senderName: "Muhia", receiverID: "69", receiverName: "Jeremy"))
+        userConversations.append(Conversation(conversationID: "69", senderID: "69", senderName: "Derp", receiverID: "69", receiverName: "Herp"))
+        userConversations.append(Conversation(conversationID: "69", senderID: "69", senderName: "Herp", receiverID: "69", receiverName: "Derp"))
         
         self.tableView.reloadData()
     }
