@@ -12,13 +12,15 @@ class Conversation {
     
     let conversationID: String
     let senderID: String
+    let senderName: String
     let receiverID: String
     let receiverName: String
 
-    init (conversationID: String, senderID: String, receiverID: String, receiverName: String) {
+    init (conversationID: String, senderID: String, senderName: String, receiverID: String, receiverName: String) {
     
         self.conversationID = conversationID
         self.senderID = senderID
+        self.senderName = senderName
         self.receiverID = receiverID
         self.receiverName = receiverName
     }
