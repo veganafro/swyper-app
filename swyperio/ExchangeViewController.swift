@@ -62,6 +62,10 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     // This method adds a button to an MKAnnotationView
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
         print("ADDING MKANNOTATIONVIEW TO MKVIEW")
         let identifier = "Event"
         
