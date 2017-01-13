@@ -30,7 +30,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         // Centres the map on the initial location
         centerMapOnLocation(location: INITIAL_LOCATION)
-        // exchangeView.addAnnotations(FirebaseHelperFunctions.allEvents)
         exchangeView.delegate = self
         
     } // End of the viewDidLoad function
@@ -51,6 +50,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Reserve", style: .default, handler: {action in self.handleReserveButtonTapped(event: event)}))
         present(alert, animated: true, completion: nil)
+        print("DONE PRESENTING ALERT")
     }
     
     // This method adds a button to an MKAnnotationView
@@ -87,7 +87,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         if event.maxReservations < 1 {
             
-            exchangeView.deselectAnnotation(event, animated: true)
             exchangeView.removeAnnotation(event)
             FirebaseHelperFunctions.deleteEvent(event)
             FirebaseHelperFunctions.updateAllEventsObject()
@@ -107,16 +106,12 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
                 exchangeView.addAnnotation(event)
             }
         }
-        // exchangeView.addAnnotations(FirebaseHelperFunctions.allEvents)
     }
     
-    
-    
-    // Note: Not really required now
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 
     /*
