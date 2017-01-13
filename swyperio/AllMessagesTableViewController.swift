@@ -41,9 +41,15 @@ class AllMessagesTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private func configureDatabase() {
+    
+        databaseRefHandle = self.databaseRef.child("conversation").observe(.childAdded, with: { (snapshot) -> Void in
+            // DO SOME STUFF IN HERE TO HANDLE CHILDREN BEING ADDED TO CONVERSATIONS
+        })
+    }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
