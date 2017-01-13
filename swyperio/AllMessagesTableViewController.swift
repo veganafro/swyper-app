@@ -14,6 +14,8 @@ class AllMessagesTableViewController: UITableViewController {
     var senderDisplayName: String?
     private var userConversations: [Conversation] = []
     
+    private lazy var databaseRef: FIRDatabaseReference = FIRDatabase.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
