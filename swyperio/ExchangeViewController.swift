@@ -48,14 +48,21 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         let alert = UIAlertController(title: eventName, message: "\(eventReservations)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Reserve", style: .default, handler: {action in self.handleReserveButtonTapped(event: event)}))
+        alert.addAction(UIAlertAction(title: "Reserve", style: .default, handler: { action in
+            
+            let numReservations = self.handleReserveButtonTapped(event: event)
+            if numReservations < 1 {
+                self.exchangeView.removeAnnotation(event)
+            }
+        
+        }))
         present(alert, animated: true, completion: nil)
-        print("DONE PRESENTING ALERT")
     }
     
     // This method adds a button to an MKAnnotationView
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
+        print("ADDING MKANNOTATIONVIEW TO MKVIEW")
         let identifier = "Event"
         
         if annotation is Event {
@@ -81,20 +88,22 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     }
     
     // This helper function decrements the number of reservations for a given event when the event button in an annotation's alert view is pressed
-    func handleReserveButtonTapped(event: Event) {
+    func handleReserveButtonTapped(event: Event) -> Int {
         
+        print("STARTING DECREMENT RESERVATIONS")
         event.maxReservations -= 1
         
         if event.maxReservations < 1 {
             
-            exchangeView.removeAnnotation(event)
+            self.exchangeView.removeAnnotation(event)
             FirebaseHelperFunctions.deleteEvent(event)
             FirebaseHelperFunctions.updateAllEventsObject()
-            return
+            return 0
         }
         
         print("UPLOADING EVENT TO FIREBASE")
         FirebaseHelperFunctions.uploadEvent(event)
+        return event.maxReservations
     }
     
     override func viewWillAppear(_ animated: Bool) {
