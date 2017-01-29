@@ -14,8 +14,6 @@ import FirebaseDatabase
 class FirebaseHelperFunctions: NSObject {
     static var allEvents = [Event]()
     
-    
-    
     /*  Uploads event to firebase db based on randomly generated unique event id from the event class
         if values are updated in an event and this function is called, the db will update the
         event information and will not create a new event
@@ -46,7 +44,6 @@ class FirebaseHelperFunctions: NSObject {
         //dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
         //databaseRef.removeValue(completionBlock: databaseRef.child("events").child(event.uniqueID))
         databaseRef.child("events/\(event.uniqueID)").removeValue()
-
         print("event deleted")
 
     }
