@@ -75,11 +75,13 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
                 
+                print("ADDING AN EXISTING ANNOTATION TO THE MAPVIEW")
                 annotationView.annotation = annotation
                 return annotationView
             }
             else {
                 
+                print("ADDING A NEW ANNOTATION TO THE MAPVIEW")
                 let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView.isEnabled = true
                 annotationView.canShowCallout = true
