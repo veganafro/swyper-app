@@ -70,26 +70,37 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         print("ADDING MKANNOTATIONVIEW TO MKVIEW")
         let identifier = "Event"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        
+        if pinView == nil {
+            
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            pinView?.canShowCallout = true
+        }
+        
+        //var button = UIButton
         
         if annotation is Event {
         
-            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
-                
-                print("ADDING AN EXISTING ANNOTATION TO THE MAPVIEW")
-                annotationView.annotation = annotation
-                return annotationView
-            }
-            else {
-                
-                print("ADDING A NEW ANNOTATION TO THE MAPVIEW")
-                let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView.isEnabled = true
-                annotationView.canShowCallout = true
-                
-                let button = UIButton(type: .detailDisclosure)
-                annotationView.rightCalloutAccessoryView = button
-                return annotationView
-            }
+//            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+//                
+//                print("ADDING AN EXISTING ANNOTATION TO THE MAPVIEW")
+//                annotationView.annotation = annotation
+//                return annotationView
+//            }
+//            else {
+//                
+//                print("ADDING A NEW ANNOTATION TO THE MAPVIEW")
+//                let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//                annotationView.isEnabled = true
+//                annotationView.canShowCallout = true
+//                
+//                let button = UIButton(type: .detailDisclosure)
+//                annotationView.rightCalloutAccessoryView = button
+//                return annotationView
+//            }
+            
+            
         }
         
         return nil
