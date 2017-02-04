@@ -83,31 +83,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         pinView?.rightCalloutAccessoryView = button
         
         return pinView
-        
-        // if annotation is Event {
-        
-//            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
-//                
-//                print("ADDING AN EXISTING ANNOTATION TO THE MAPVIEW")
-//                annotationView.annotation = annotation
-//                return annotationView
-//            }
-//            else {
-//                
-//                print("ADDING A NEW ANNOTATION TO THE MAPVIEW")
-//                let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//                annotationView.isEnabled = true
-//                annotationView.canShowCallout = true
-//                
-//                let button = UIButton(type: .detailDisclosure)
-//                annotationView.rightCalloutAccessoryView = button
-//                return annotationView
-//            }
-            
-            
-        // }
-        
-        // return nil
     }
     
     // This helper function decrements the number of reservations for a given event when the event button in an annotation's alert view is pressed
