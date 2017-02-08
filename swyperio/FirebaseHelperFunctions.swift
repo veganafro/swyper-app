@@ -39,6 +39,7 @@ class FirebaseHelperFunctions: NSObject {
     /*  deletes an event from firebase
     */
     static func deleteEvent(_ event: Event) {
+        
         let databaseRef = FIRDatabase.database().reference()
         //let dateFormatter = DateFormatter()
         //dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
