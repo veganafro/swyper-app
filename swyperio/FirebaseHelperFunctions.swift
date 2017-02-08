@@ -41,7 +41,6 @@ class FirebaseHelperFunctions: NSObject {
     static func deleteEvent(_ event: Event) {
         
         let databaseRef = FIRDatabase.database().reference()
-        //let dateFormatter = DateFormatter()
         //dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
         //databaseRef.removeValue(completionBlock: databaseRef.child("events").child(event.uniqueID))
         databaseRef.child("events/\(event.uniqueID)").removeValue()
