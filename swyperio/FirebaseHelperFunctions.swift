@@ -45,7 +45,6 @@ class FirebaseHelperFunctions: NSObject {
         //databaseRef.removeValue(completionBlock: databaseRef.child("events").child(event.uniqueID))
         databaseRef.child("events/\(event.uniqueID)").removeValue()
         print("event deleted")
-
     }
     
     
