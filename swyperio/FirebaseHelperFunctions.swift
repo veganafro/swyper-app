@@ -44,7 +44,6 @@ class FirebaseHelperFunctions: NSObject {
         //dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
         //databaseRef.removeValue(completionBlock: databaseRef.child("events").child(event.uniqueID))
         databaseRef.child("events/\(event.uniqueID)").removeValue()
-        self.allEvents.remove(at: self.allEvents.index(of: event)!)
         print("event deleted")
 
     }
