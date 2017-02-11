@@ -106,9 +106,10 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         print("ADDING ANNOTATIONS TO MAP AT VIEW WILL APPEAR")
         print("ALLEVENTS OBJECT HAS \(FirebaseHelperFunctions.allEvents.count) VALUE(S)")
-        print(FirebaseHelperFunctions.allEvents)
+        
         for event in FirebaseHelperFunctions.allEvents {
             
             if event.maxReservations >= 1 {
