@@ -116,12 +116,14 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         print("ADDING ANNOTATIONS TO MAP AT VIEW WILL APPEAR")
         print("ALLEVENTS OBJECT HAS \(FirebaseHelperFunctions.allEvents.count) VALUE(S)")
         
-        for event in FirebaseHelperFunctions.allEvents {
-            
-            if event.maxReservations >= 1 {
-                exchangeView.addAnnotation(event)
-            }
-        }
+        exchangeView.addAnnotations(FirebaseHelperFunctions.allEvents)
+        
+//        for event in FirebaseHelperFunctions.allEvents {
+//            
+//            if event.maxReservations >= 1 {
+//                exchangeView.addAnnotation(event)
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
