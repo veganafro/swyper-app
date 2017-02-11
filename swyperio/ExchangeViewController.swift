@@ -108,6 +108,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         print("UPLOADING EVENT TO FIREBASE")
         FirebaseHelperFunctions.uploadEvent(event)
+        FirebaseHelperFunctions.updateAllEventsObject()
         return event.maxReservations
     }
     
@@ -115,7 +116,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         print("ADDING ANNOTATIONS TO MAP AT VIEW WILL APPEAR")
         print("ALLEVENTS OBJECT HAS \(FirebaseHelperFunctions.allEvents.count) VALUE(S)")
-        
+        print(FirebaseHelperFunctions.allEvents)
         exchangeView.addAnnotations(FirebaseHelperFunctions.allEvents)
         
     }
