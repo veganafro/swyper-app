@@ -86,7 +86,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         }
         else {
         
-            
+            pinView!.annotation = annotation
         }
         
         return pinView
