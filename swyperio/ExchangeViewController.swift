@@ -52,6 +52,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
             
             let numReservations = self.handleReserveButtonTapped(event: event)
             if numReservations < 1 {
+                
                 FirebaseHelperFunctions.deleteEvent(event)
                 FirebaseHelperFunctions.updateAllEventsObject()
                 self.exchangeView.removeAnnotation(event)
