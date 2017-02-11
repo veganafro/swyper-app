@@ -79,6 +79,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
             pinView?.canShowCallout = true
             
             let button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
+            
             pinView?.rightCalloutAccessoryView = button
         }
         else {
