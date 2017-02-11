@@ -77,15 +77,14 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
             
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             pinView?.canShowCallout = true
+            
+            let button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
+            pinView?.rightCalloutAccessoryView = button
         }
         else {
         
             
         }
-        
-        let button = UIButton(type: UIButtonType.detailDisclosure) as UIButton
-        
-        pinView?.rightCalloutAccessoryView = button
         
         return pinView
     }
