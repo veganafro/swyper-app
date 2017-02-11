@@ -70,7 +70,9 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         }
         
         print("ADDING MKANNOTATIONVIEW TO MKVIEW")
+        
         let identifier = "Event"
+        
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if pinView == nil {
