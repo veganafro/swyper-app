@@ -77,7 +77,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
             try firebaseAuth?.signOut()
             AppState.sharedInstance.signedIn = false
-            FirebaseHelperFunctions.updateAllEventsObject()
+            // FirebaseHelperFunctions.updateAllEventsObject()
+            FirebaseHelperFunctions.allEvents = []
             self.performSegue(withIdentifier: "signOutSegue", sender: nil)
         }
         catch let signOutError as NSError {

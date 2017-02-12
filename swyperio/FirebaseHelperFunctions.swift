@@ -44,6 +44,7 @@ class FirebaseHelperFunctions: NSObject {
         
         let databaseRef = FIRDatabase.database().reference()
         databaseRef.child("events/\(event.uniqueID)").removeValue()
+        allEventsSet.remove(event)
         print("event deleted")
     }
     
@@ -77,6 +78,7 @@ class FirebaseHelperFunctions: NSObject {
                                            uniqueID: uniqueEventID as! String)
               
                     allEvents.append(eventToAdd)
+                    allEventsSet.insert(eventToAdd)
                 }
             }
             else {
