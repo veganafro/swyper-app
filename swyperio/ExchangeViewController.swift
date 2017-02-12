@@ -77,6 +77,8 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         if pinView == nil {
             
+            print("COULD NOT DEQUE AN EXISTING PIN VIEW")
+            
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             pinView?.canShowCallout = true
             
@@ -86,6 +88,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         }
         else {
         
+            print("DEQUED AN EXISTING PIN VIEW")
             pinView!.annotation = annotation
         }
         
