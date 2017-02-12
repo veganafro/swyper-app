@@ -56,8 +56,11 @@ class FirebaseHelperFunctions: NSObject {
         currently just updates the all events object
      */
     static func updateAllEventsObject() {
+        
         print("updating allEvents object")
+        
         let databaseRef = FIRDatabase.database().reference()
+        
         databaseRef.child("events").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             let allEventsDict = snapshot.value as? NSDictionary
             let dateFormatter = DateFormatter()
