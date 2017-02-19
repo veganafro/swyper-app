@@ -24,8 +24,9 @@ class FirebaseHelperFunctions: NSObject {
      */
     
     static func uploadEvent(_ event: Event){
+        
         print("begin uploading event")
-        // let databaseRef = FIRDatabase.database().reference()
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
         self.databaseRef.child("events").child(event.uniqueID).setValue(["user_id": event.userID,
@@ -44,7 +45,6 @@ class FirebaseHelperFunctions: NSObject {
     */
     static func deleteEvent(_ event: Event) {
         
-        // let databaseRef = FIRDatabase.database().reference()
         databaseRef.child("events/\(event.uniqueID)").removeValue()
         allEventsSet.remove(event)
         print("event deleted")
@@ -60,8 +60,6 @@ class FirebaseHelperFunctions: NSObject {
     static func updateAllEventsObject() {
         
         print("updating allEvents object")
-        
-        // let databaseRef = FIRDatabase.database().reference()
         
         databaseRef.child("events").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             let allEventsDict = snapshot.value as? NSDictionary
