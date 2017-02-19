@@ -13,7 +13,6 @@ import FirebaseDatabase
 
 class FirebaseHelperFunctions: NSObject {
     
-    static var allEvents = [Event]()
     static var allEventsSet = Set<Event>()
     
     static var databaseRef = FIRDatabase.database().reference()
@@ -41,8 +40,9 @@ class FirebaseHelperFunctions: NSObject {
         print("end uploading event")
     }
     
-    /*  deletes an event from firebase
-    */
+    /* 
+     deletes an event from firebase
+     */
     static func deleteEvent(_ event: Event) {
         
         self.databaseRef.child("events/\(event.uniqueID)").removeValue()
@@ -80,7 +80,6 @@ class FirebaseHelperFunctions: NSObject {
                                            userID: tempDict?["user_id"] as! String,
                                            uniqueID: uniqueEventID as! String)
               
-                    allEvents.append(eventToAdd)
                     allEventsSet.insert(eventToAdd)
                 }
             }
