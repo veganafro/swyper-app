@@ -55,6 +55,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
                 
                 FirebaseHelperFunctions.deleteEvent(event)
                 FirebaseHelperFunctions.updateAllEventsObject()
+                mapView.removeAnnotation(event)
                 self.exchangeView.removeAnnotation(event)
             }
         
@@ -101,13 +102,13 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         print("STARTING DECREMENT RESERVATIONS")
         event.maxReservations -= 1
         
-        if event.maxReservations < 1 {
-            
+//        if event.maxReservations < 1 {
+//            
 //            self.exchangeView.removeAnnotation(event)
 //            FirebaseHelperFunctions.deleteEvent(event)
 //            FirebaseHelperFunctions.updateAllEventsObject()
-            return 0
-        }
+//            return 0
+//        }
         
 //        print("UPLOADING EVENT TO FIREBASE")
 //        FirebaseHelperFunctions.uploadEvent(event)
@@ -121,9 +122,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         print("ALLEVENTS OBJECT HAS \(FirebaseHelperFunctions.allEventsSet.count) VALUE(S)")
         
         FirebaseHelperFunctions.updateAllEventsObject()
-        
-        exchangeView.removeAnnotations(Array(FirebaseHelperFunctions.allEventsSet))
-        exchangeView.addAnnotations(Array(FirebaseHelperFunctions.allEventsSet))
         
     }
     
