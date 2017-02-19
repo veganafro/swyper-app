@@ -16,6 +16,8 @@ class FirebaseHelperFunctions: NSObject {
     static var allEvents = [Event]()
     static var allEventsSet = Set<Event>()
     
+    static var databaseRef = FIRDatabase.database().reference()
+    
     /*  Uploads event to firebase db based on randomly generated unique event id from the event class
         if values are updated in an event and this function is called, the db will update the
         event information and will not create a new event
@@ -23,10 +25,10 @@ class FirebaseHelperFunctions: NSObject {
     
     static func uploadEvent(_ event: Event){
         print("begin uploading event")
-        let databaseRef = FIRDatabase.database().reference()
+        // let databaseRef = FIRDatabase.database().reference()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
-        databaseRef.child("events").child(event.uniqueID).setValue(["user_id": event.userID,
+        self.databaseRef.child("events").child(event.uniqueID).setValue(["user_id": event.userID,
                                                                          "name": event.name,
                                                                          "latitude": event.coordinate.latitude,
                                                                          "longitude": event.coordinate.longitude,
@@ -42,7 +44,7 @@ class FirebaseHelperFunctions: NSObject {
     */
     static func deleteEvent(_ event: Event) {
         
-        let databaseRef = FIRDatabase.database().reference()
+        // let databaseRef = FIRDatabase.database().reference()
         databaseRef.child("events/\(event.uniqueID)").removeValue()
         allEventsSet.remove(event)
         print("event deleted")
@@ -59,7 +61,7 @@ class FirebaseHelperFunctions: NSObject {
         
         print("updating allEvents object")
         
-        let databaseRef = FIRDatabase.database().reference()
+        // let databaseRef = FIRDatabase.database().reference()
         
         databaseRef.child("events").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             let allEventsDict = snapshot.value as? NSDictionary
