@@ -103,15 +103,15 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         
         if event.maxReservations < 1 {
             
-            self.exchangeView.removeAnnotation(event)
-            FirebaseHelperFunctions.deleteEvent(event)
-            FirebaseHelperFunctions.updateAllEventsObject()
+//            self.exchangeView.removeAnnotation(event)
+//            FirebaseHelperFunctions.deleteEvent(event)
+//            FirebaseHelperFunctions.updateAllEventsObject()
             return 0
         }
         
-        print("UPLOADING EVENT TO FIREBASE")
-        FirebaseHelperFunctions.uploadEvent(event)
-        FirebaseHelperFunctions.updateAllEventsObject()
+//        print("UPLOADING EVENT TO FIREBASE")
+//        FirebaseHelperFunctions.uploadEvent(event)
+//        FirebaseHelperFunctions.updateAllEventsObject()
         return event.maxReservations
     }
     
