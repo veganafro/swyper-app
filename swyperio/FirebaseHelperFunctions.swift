@@ -61,6 +61,8 @@ class FirebaseHelperFunctions: NSObject {
         
         print("updating allEvents object")
         
+        allEventsSet.removeAll()
+        
         self.databaseRef.child("events").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             let allEventsDict = snapshot.value as? NSDictionary
             let dateFormatter = DateFormatter()
