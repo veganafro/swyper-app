@@ -17,7 +17,8 @@ class FirebaseHelperFunctions: NSObject {
     
     static var databaseRef = FIRDatabase.database().reference()
     
-    /*  Uploads event to firebase db based on randomly generated unique event id from the event class
+    /*  
+        Uploads event to firebase db based on randomly generated unique event id from the event class
         if values are updated in an event and this function is called, the db will update the
         event information and will not create a new event
      */
@@ -41,7 +42,7 @@ class FirebaseHelperFunctions: NSObject {
     }
     
     /* 
-     deletes an event from firebase
+        deletes an event from firebase
      */
     static func deleteEvent(_ event: Event) {
         
@@ -51,7 +52,8 @@ class FirebaseHelperFunctions: NSObject {
     }
     
     
-    /*  Returns a list of all events from the firebase db
+    /*  
+        Returns a list of all events from the firebase db
         NOTE: STILL NEEDS WORK - callback function 'observe' returns after the actual function so allEvents
         is never populated when returned
      
@@ -63,11 +65,14 @@ class FirebaseHelperFunctions: NSObject {
         
         allEventsSet.removeAll()
         
-        self.databaseRef.child("events").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+        self.databaseRef.child("events").observeSingleEvent(of: .value, with: { (snapshot) in
             let allEventsDict = snapshot.value as? NSDictionary
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEE, dd MMM yyy hh:mm:ss +zzzz"
             if let eventsDictionary = allEventsDict {
+                
+                databaseRef.child("events").removeAllObservers()
+                
                 for(uniqueEventID, eventInfo) in eventsDictionary {
                     let tempDict = eventInfo as? NSDictionary
                 
