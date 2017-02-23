@@ -123,6 +123,12 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         exchangeView.addAnnotations(Array(FirebaseHelperFunctions.allEventsSet))
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        print("REMOVING ALL ANNOTATIONS")
+        exchangeView.removeAnnotations(Array(FirebaseHelperFunctions.allEventsSet))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
