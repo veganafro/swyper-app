@@ -13,7 +13,7 @@ class Conversation {
     var conversationID: String
     var senderID: String
     var senderName: String
-    let receiverID: String
+    var receiverID: String
     let receiverName: String
 
     init (conversationID: String, senderID: String, senderName: String, receiverID: String, receiverName: String) {
