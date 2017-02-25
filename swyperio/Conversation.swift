@@ -12,7 +12,7 @@ class Conversation {
     
     var conversationID: String
     var senderID: String
-    let senderName: String
+    var senderName: String
     let receiverID: String
     let receiverName: String
 
