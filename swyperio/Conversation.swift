@@ -15,7 +15,7 @@ class Conversation {
     var messageList: [FIRDataSnapshot]! = []
     var receiverName: String
     
-    init (conversationID: String = UUID().uuidString) {
+    init (conversationID: String = UUID().uuidString, receiverName: String) {
     
         self.conversationID = conversationID
     }
