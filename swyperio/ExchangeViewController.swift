@@ -101,17 +101,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         print("STARTING DECREMENT RESERVATIONS")
         event.maxReservations -= 1
         
-//        if event.maxReservations < 1 {
-//            
-//            self.exchangeView.removeAnnotation(event)
-//            FirebaseHelperFunctions.deleteEvent(event)
-//            FirebaseHelperFunctions.updateAllEventsObject()
-//            return 0
-//        }
-        
-//        print("UPLOADING EVENT TO FIREBASE")
-//        FirebaseHelperFunctions.uploadEvent(event)
-//        FirebaseHelperFunctions.updateAllEventsObject()
+
         return event.maxReservations
     }
     
