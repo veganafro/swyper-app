@@ -10,8 +10,8 @@ import Foundation
 
 class Conversation {
     
-    let conversationID: String
-    let senderID: String
+    var conversationID: String
+    var senderID: String
     let senderName: String
     let receiverID: String
     let receiverName: String
