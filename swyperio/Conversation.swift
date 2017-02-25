@@ -16,7 +16,7 @@ class Conversation {
     var receiverID: String
     var receiverName: String
 
-    init (conversationID: String, senderID: String, senderName: String, receiverID: String, receiverName: String) {
+    init (conversationID: String = UUID().uuidString, senderID: String, senderName: String, receiverID: String, receiverName: String) {
     
         self.conversationID = conversationID
         self.senderID = senderID
