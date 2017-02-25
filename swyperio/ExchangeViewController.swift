@@ -101,7 +101,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
         print("STARTING DECREMENT RESERVATIONS")
         event.maxReservations -= 1
         
-
         return event.maxReservations
     }
     
