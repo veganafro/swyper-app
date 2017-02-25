@@ -7,21 +7,16 @@
 //
 
 import Foundation
+import Firebase
 
 class Conversation {
     
     var conversationID: String
-    var senderID: String
-    var senderName: String
-    var receiverID: String
-    var receiverName: String
-
+    var messageList: [FIRDataSnapshot]! = []
+    
     init (conversationID: String = UUID().uuidString, senderID: String, senderName: String, receiverID: String, receiverName: String) {
     
         self.conversationID = conversationID
-        self.senderID = senderID
-        self.senderName = senderName
-        self.receiverID = receiverID
-        self.receiverName = receiverName
+        
     }
 }
