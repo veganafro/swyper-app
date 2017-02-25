@@ -13,6 +13,7 @@ class Conversation {
     
     var conversationID: String
     var messageList: [FIRDataSnapshot]! = []
+    var receiverName: String
     
     init (conversationID: String = UUID().uuidString) {
     
