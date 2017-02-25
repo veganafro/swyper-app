@@ -14,7 +14,7 @@ class Conversation {
     var senderID: String
     var senderName: String
     var receiverID: String
-    let receiverName: String
+    var receiverName: String
 
     init (conversationID: String, senderID: String, senderName: String, receiverID: String, receiverName: String) {
     
