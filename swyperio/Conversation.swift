@@ -18,5 +18,6 @@ class Conversation {
     init (conversationID: String = UUID().uuidString, receiverName: String) {
     
         self.conversationID = conversationID
+        self.receiverName = receiverName
     }
 }
