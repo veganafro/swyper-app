@@ -25,6 +25,7 @@ class FirebaseHelperFunctions: NSObject {
     
     static func startConversations(_ userOne: String, userTwo: String) {
     
+        
     }
     
     static func uploadEvent(_ event: Event){
