@@ -23,6 +23,12 @@ class FirebaseHelperFunctions: NSObject {
         
     }
     
+    /*
+     Uploads event to firebase db based on randomly generated unique event id from the event class
+     if values are updated in an event and this function is called, the db will update the
+     event information and will not create a new event
+     */
+    
     static func uploadEvent(_ event: Event){
         
         print("begin uploading event")
