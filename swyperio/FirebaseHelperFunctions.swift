@@ -17,7 +17,9 @@ class FirebaseHelperFunctions: NSObject {
     
     static var databaseRef = FIRDatabase.database().reference()
     
-    
+    /*
+        This method takes two user IDs and adds a conversation to each of their collection of conversations. The method also creates a record of the conversation and messages under it in the database.
+     */
     static func startConversations(_ userOne: String, userTwo: String) {
     
         
