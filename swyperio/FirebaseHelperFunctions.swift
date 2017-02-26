@@ -23,7 +23,7 @@ class FirebaseHelperFunctions: NSObject {
         event information and will not create a new event
      */
     
-    static func startConversations(_) {
+    static func startConversations(_ userOne: String, userTwo: String) {
     
     }
     
