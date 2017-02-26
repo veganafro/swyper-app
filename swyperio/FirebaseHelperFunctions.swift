@@ -18,7 +18,6 @@ class FirebaseHelperFunctions: NSObject {
     static var databaseRef = FIRDatabase.database().reference()
     
     
-    
     static func startConversations(_ userOne: String, userTwo: String) {
     
         
