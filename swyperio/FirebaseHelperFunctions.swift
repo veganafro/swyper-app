@@ -17,11 +17,7 @@ class FirebaseHelperFunctions: NSObject {
     
     static var databaseRef = FIRDatabase.database().reference()
     
-    /*  
-        Uploads event to firebase db based on randomly generated unique event id from the event class
-        if values are updated in an event and this function is called, the db will update the
-        event information and will not create a new event
-     */
+    
     
     static func startConversations(_ userOne: String, userTwo: String) {
     
