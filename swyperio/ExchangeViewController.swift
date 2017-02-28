@@ -57,7 +57,9 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
                 mapView.removeAnnotation(event)
                 self.exchangeView.removeAnnotation(event)
             }
-        
+            else {
+                FirebaseHelperFunctions.uploadEvent(event)
+            }
         }))
         present(alert, animated: true, completion: nil)
     }
