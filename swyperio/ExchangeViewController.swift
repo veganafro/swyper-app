@@ -136,4 +136,4 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     }
     */
 
-} // End of the ExchangeViewController
+}
