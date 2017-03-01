@@ -74,7 +74,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
             return nil
         }
         
-        print("ADDING MKANNOTATIONVIEW TO MKVIEW")
         
         let identifier = "Event"
         
