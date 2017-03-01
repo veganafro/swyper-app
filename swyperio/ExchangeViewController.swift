@@ -26,6 +26,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Centres the map on the initial location
