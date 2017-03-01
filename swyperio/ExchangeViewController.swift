@@ -11,6 +11,7 @@ import MapKit
 import Firebase
 
 class ExchangeViewController: UIViewController, MKMapViewDelegate {
+    
     // Sets the initial location to be at Bobst Library
     let INITIAL_LOCATION = CLLocation(latitude: 40.729508, longitude: -73.997181)
     
