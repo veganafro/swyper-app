@@ -103,7 +103,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     // This helper function decrements the number of reservations for a given event when the event button in an annotation's alert view is pressed
     func handleReserveButtonTapped(event: Event) -> Int {
         
-        print("STARTING DECREMENT RESERVATIONS")
         event.maxReservations -= 1
         
         return event.maxReservations
