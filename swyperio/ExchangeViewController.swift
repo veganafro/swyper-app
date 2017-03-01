@@ -74,7 +74,6 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
             return nil
         }
         
-        
         let identifier = "Event"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
