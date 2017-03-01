@@ -39,6 +39,7 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
     /*
      These methods specify how an MKAnnotationView should look when tapped in a map view
      */
+    
     // This method determines the action taken when an annotation's button is tapped
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
