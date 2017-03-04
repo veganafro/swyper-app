@@ -28,6 +28,11 @@ class FirebaseHelperFunctions: NSObject {
                 conversation.conversationID: true
             ]
         )
+        
+        databaseRef.child("user_profile").child(userTwo).child("conversations").setValue([
+                conversation.conversationID: true
+            ]
+        )
     }
     
     /*
