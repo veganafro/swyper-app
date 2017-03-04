@@ -21,6 +21,8 @@ class FirebaseHelperFunctions: NSObject {
         This method takes two user IDs and adds a conversation to each of their collection of conversations. The method also creates a record of the conversation and messages under it in the database.
      */
     static func startConversations(_ userOne: String, userTwo: String) {
+        
+        let conversation = Conversation(conversationID: <#T##String#>, receiverName: <#T##String#>)
     
         databaseRef.child("user_profile").child(userOne).setValue(<#T##value: Any?##Any?#>)
     }

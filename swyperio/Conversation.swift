@@ -12,12 +12,13 @@ import Firebase
 class Conversation {
     
     var conversationID: String
+    var userOne: String
+    var userTwo: String
     var messageList: [FIRDataSnapshot]! = []
-    var receiverName: String
     
     init (conversationID: String = UUID().uuidString, receiverName: String) {
     
         self.conversationID = conversationID
-        self.receiverName = receiverName
+        self.userOne = receiverName
     }
 }
