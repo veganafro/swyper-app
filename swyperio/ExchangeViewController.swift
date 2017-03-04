@@ -63,6 +63,8 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
             else {
                 FirebaseHelperFunctions.uploadEvent(event)
             }
+            
+            
         }))
         present(alert, animated: true, completion: nil)
     }
