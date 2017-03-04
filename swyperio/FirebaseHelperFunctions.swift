@@ -24,7 +24,10 @@ class FirebaseHelperFunctions: NSObject {
         
         let conversation = Conversation(userOne: userOne, userTwo: userTwo)
     
-        databaseRef.child("user_profile").child(userOne).setValue(<#T##value: Any?##Any?#>)
+        databaseRef.child("user_profile").child(userOne).child("conversations").setValue([
+                conversation.conversationID: true
+            ]
+        )
     }
     
     /*
