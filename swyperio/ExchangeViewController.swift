@@ -64,7 +64,10 @@ class ExchangeViewController: UIViewController, MKMapViewDelegate {
                 FirebaseHelperFunctions.uploadEvent(event)
             }
             
+            let currentUser = FIRAuth.auth()?.currentUser
+            let otherUser = event.userID
             
+            FirebaseHelperFunctions.startConversations(currentUser!, userTwo: otherUser)
         }))
         present(alert, animated: true, completion: nil)
     }
