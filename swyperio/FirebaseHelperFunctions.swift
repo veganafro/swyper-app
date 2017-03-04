@@ -22,7 +22,7 @@ class FirebaseHelperFunctions: NSObject {
      */
     static func startConversations(_ userOne: String, userTwo: String) {
     
-        
+        databaseRef.child("user_profile").child(userOne).setValue(<#T##value: Any?##Any?#>)
     }
     
     /*
