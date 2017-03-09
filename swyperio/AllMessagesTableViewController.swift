@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class AllMessagesTableViewController: UITableViewController {
 
@@ -60,6 +61,8 @@ class AllMessagesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath)
 
         // Configure the cell...
+        let currentUser = FIRAuth.auth()?.currentUser?.uid
+        
         cell.textLabel?.text = userConversations[(indexPath).row]
         return cell
     }
