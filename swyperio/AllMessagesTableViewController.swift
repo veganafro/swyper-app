@@ -60,7 +60,7 @@ class AllMessagesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "conversationCell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = userConversations[(indexPath).row].receiverName
+        cell.textLabel?.text = userConversations[(indexPath).row]
         return cell
     }
 
