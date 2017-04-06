@@ -89,7 +89,7 @@ class LoadingIndicatorView: UIView {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(1800)
         
-        let angle: Double = (M_PI).multiplied(by: -1)
+        let angle: Double = (Double.pi).multiplied(by: -1)
         
         let transformation: CGAffineTransform = CGAffineTransform().rotated(by: CGFloat(angle))
         self.transform = transformation
