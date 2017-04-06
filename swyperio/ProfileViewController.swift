@@ -174,7 +174,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             setProfilePicture(imageView: self.profilePicture, imageToSet: image)
             
-            if let imageData: NSData = UIImagePNGRepresentation(self.profilePicture.image!)! as NSData?{
+            if let imageData: NSData = UIImagePNGRepresentation(self.profilePicture.image!)! as NSData!{
                 
                 let profilePicStorageRef = storageRef.child("user_profile/\(self.user!.uid)/profile_picture")
                 
