@@ -27,7 +27,7 @@ class AllMessagesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        userConversations = databaseRef.child("user_profile").child()
+        userConversations = databaseRef.child("user_profile").child((FIRAuth.auth()?.currentUser?.uid)!).child("conversations")
     }
     
     override func viewWillAppear(_ animated: Bool) {
