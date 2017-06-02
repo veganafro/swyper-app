@@ -119,6 +119,10 @@ class FirebaseHelperFunctions: NSObject {
      static func newUpdateAllEventsObject() {
         
         print("starting new update all events object function")
+     
+        refHandle = self.databaseRef.child("events").observe(.value, with { (snapshot) in
+     
+        })
      }
     */
 }
