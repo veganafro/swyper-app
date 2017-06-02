@@ -114,4 +114,9 @@ class FirebaseHelperFunctions: NSObject {
             print("allEvents object has been updated")
         })
     }
+    
+    /*
+     static func newUpdateAllEventsObject() {
+     }
+    */
 }
